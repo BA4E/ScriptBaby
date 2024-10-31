@@ -1,5 +1,6 @@
 @echo off
-
+@rem .\VMPSwitch ON 开启虚拟机平台
+@rem .\VMPSwitch OFF 开启虚拟机平台
 set flag=%1
 
 if %flag% == ON (
