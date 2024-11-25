@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历path</title>
+</head>
+<body>
+<h1>读取文件内容并逐行访问</h1>
+
+<!-- 文件选择框 -->
+<input type="file" id="fileInput" />
+
+<pre id="output"></pre>
+
+<script>
+    // 获取 HTML 元素
+    const fileInput = document.getElementById('fileInput');
+    const output = document.getElementById('output');
+    const base = 'https://huster.cn'
+
+    // 文件选择事件监听器
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0]; // 获取选中的文件
+
+        if (file) {
+            const reader = new FileReader(); // 创建 FileReader 对象
+
+            // 文件加载完成事件
+            reader.onload = (e) => {
+                const content = e.target.result; // 文件内容
+                const lines = content.split(/\r?\n/); // 按行分割
+
+                // 遍历每一行并输出到页面
+                lines.forEach((line, index) => {
+                    //output.textContent += `第 ${index + 1} 行: ${line}\n`;
+                    url = base + line
+                    window.open(url)
+                });
+            };
+
+            // 读取文件为文本
+            reader.readAsText(file);
+        } else {
+            alert('未选择文件');
+        }
+    });
+</script>
+</body>
+</html>
