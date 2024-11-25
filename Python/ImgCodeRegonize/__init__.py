@@ -1,0 +1,2 @@
+class ImgCodeRegonize:
+    pass
